@@ -59,3 +59,16 @@ Healthcare_Analytics_App/
 ├── requirements.txt
 └── README.md
 ```
+## Project Screenshots
+
+### 1. Dashboard Overview
+![Dashboard Overview](screenshots/01_dashboard_overview.png)
+
+### 2. MySQL Database Tables
+![Database Tables](screenshots/02_database_tables.png)
+
+### 3. Database Record Counts
+![Database Record Counts](screenshots/03_record_counts.png)
+
+### 4. Database ERD
+![Database ERD](screenshots/04_database_erd.png)
