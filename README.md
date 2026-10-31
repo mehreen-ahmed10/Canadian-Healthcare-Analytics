@@ -63,6 +63,7 @@ Healthcare_Analytics_App/
 
 ### 1. Dashboard Overview
 ![Dashboard Overview](screenshots/01_dashboard_overview.png)
+![Dashboard Overview](screenshots/01_i_dashboard.png)
 
 ### 2. MySQL Database Tables
 ![Database Tables](screenshots/02_database_tables.png)
