@@ -1,0 +1,1 @@
+SELECT * FROM healthcare_analytics_db.fact_healthcare_expenditure;

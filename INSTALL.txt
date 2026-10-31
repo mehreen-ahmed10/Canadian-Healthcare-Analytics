@@ -1,0 +1,9 @@
+STOP UVICORN WITH CTRL+C.
+Replace app/routers/dashboard.py with the version in this package.
+Replace app/templates/dashboard.html.
+Replace app/static/style.css and app/static/dashboard.js.
+Replace app/main.py only if you need its Jinja template/static setup; this version keeps /api/health and includes dashboard router.
+Keep app/database.py and .env unchanged.
+Run: uvicorn app.main:app --reload
+Open: http://127.0.0.1:8000
+The additional API routes /api/dashboard/gender and /api/dashboard/age are added for donut and pie charts.

@@ -1,0 +1,23 @@
+CAMPUSONE-STYLE HEALTHCARE UI INSTALLATION
+
+1. Stop Uvicorn with CTRL+C.
+2. Copy app/main.py from this package into your project, replacing the existing app/main.py.
+3. Copy the templates folder into your project's app folder.
+4. Copy the static folder into your project's app folder.
+5. Ensure requirements.txt includes:
+   jinja2
+   fastapi
+   uvicorn[standard]
+   sqlalchemy
+   pymysql
+   python-dotenv
+6. Install any missing dependency:
+   pip install jinja2
+7. Start:
+   uvicorn app.main:app --reload
+8. Open http://127.0.0.1:8000
+
+Keep app/database.py, app/routers/dashboard.py, .env and your MySQL database unchanged.
+The /docs and /api endpoints will continue to return JSON/OpenAPI because they are backend developer endpoints. The root URL / is the visual dashboard.
+
+Note: The additional analysis navigation links are visual placeholders at this stage. The Overview dashboard loads real data from the existing summary, yearly and province API endpoints.

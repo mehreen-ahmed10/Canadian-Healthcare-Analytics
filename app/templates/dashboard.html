@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HealthScope | Analytics Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', path='style.css') }}"><script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+ <div class="brand"><div class="logo">H</div><div><b>Health<span>Scope</span></b><small>ANALYTICS PLATFORM</small></div><button id="closeMenu" class="close-menu">×</button></div>
+ <div class="nav-label">WORKSPACE</div><a class="nav-item active" href="/"><span>▦</span> Overview</a>
+ <div class="nav-label">ANALYTICS</div>
+ <a class="nav-item" href="#trend"><span>↗</span> Yearly Trends</a><a class="nav-item" href="#province"><span>⌖</span> Province Analysis</a><a class="nav-item" href="#age"><span>◉</span> Per Capita & Age</a><a class="nav-item" href="#gender"><span>⚥</span> Gender Analysis</a>
+ <div class="nav-label">MANAGEMENT</div><a class="nav-item" href="#regions"><span>▤</span> Data Explorer</a><a class="nav-item" href="#reports"><span>⇩</span> Reports</a>
+ <div class="sidebar-bottom"><div class="data-source"><div class="source-mark">✦</div><div><b>Data source</b><small>Canadian healthcare expenditure<br>1998–2022</small></div></div><div class="user"><div class="user-avatar">HA</div><div><b>Analytics Workspace</b><small>Project administrator</small></div></div></div>
+</aside>
+<main class="main">
+<header class="topbar"><div class="crumb"><button id="openMenu" class="menu-btn">☰</button>Workspace <i>/</i> <b>Overview</b></div><div class="top-right"><span class="db-status"><i></i> MySQL connected</span><span class="period">1998 — 2022</span><div class="user-avatar">HA</div></div></header>
+<section class="content">
+ <div class="heading"><div><div class="eyebrow">HEALTHCARE INTELLIGENCE</div><h1>Healthcare Overview</h1><p>A comprehensive view of Canadian healthcare expenditure patterns.</p></div><div class="actions"><button class="btn secondary" id="refresh">↻ Refresh</button><button class="btn primary" id="export">⇩ Export data</button></div></div>
+ <div class="filterbar"><div class="filter-title">☷ <b>Filters</b></div><label>Year <select id="yearFilter"><option value="2022">2022</option></select></label><label>Region <select id="regionFilter"><option value="all">All provinces & territories</option></select></label><button id="reset" class="reset">Reset filters</button><span class="filter-note">National indicators use Canada totals</span></div>
+ <div class="section-heading"><div><h2>Key indicators</h2><p>Dataset coverage and scope</p></div><span class="live"><i></i> LIVE DATA</span></div>
+ <div class="metrics">
+  <div class="metric"><div class="metric-head"><span>Provinces & territories</span><em class="ico blue">⌖</em></div><strong id="regions">—</strong><small><i class="bullet blue-b"></i> Geographic coverage</small></div>
+  <div class="metric"><div class="metric-head"><span>Years covered</span><em class="ico green">▦</em></div><strong id="years">—</strong><small><i class="bullet green-b"></i> Historical dataset</small></div>
+  <div class="metric"><div class="metric-head"><span>Records analyzed</span><em class="ico violet">▤</em></div><strong id="records">—</strong><small><i class="bullet violet-b"></i> Expenditure observations</small></div>
+  <div class="metric"><div class="metric-head"><span>Dimensions</span><em class="ico amber">◈</em></div><strong>04</strong><small><i class="bullet amber-b"></i> Year, region, gender, age</small></div>
+ </div>
+ <div class="section-heading chart-section-title"><div><h2>Expenditure insights</h2><p>Explore trends, regional distribution and population segments</p></div></div>
+ <div class="chart-grid">
+  <article class="panel wide" id="trend"><div class="panel-head"><div><h3>National expenditure over time</h3><p>Annual total expenditure · both genders</p></div><span class="tag">LINE CHART</span></div><div class="chart-box"><canvas id="trendChart"></canvas><div class="empty" id="trendEmpty">Loading data…</div></div></article>
+  <article class="panel" id="gender"><div class="panel-head"><div><h3>Gender distribution</h3><p>National expenditure · selected year</p></div><span class="tag">DOUGHNUT</span></div><div class="donut-wrap"><canvas id="genderChart"></canvas><div class="empty" id="genderEmpty">Loading data…</div></div><div class="legend" id="genderLegend"></div></article>
+  <article class="panel" id="province"><div class="panel-head"><div><h3>Regional comparison</h3><p>Combined expenditure by region · all years</p></div><span class="tag">BAR CHART</span></div><div class="chart-box tall"><canvas id="provinceChart"></canvas><div class="empty" id="provinceEmpty">Loading data…</div></div></article>
+  <article class="panel" id="age"><div class="panel-head"><div><h3>Expenditure by age group</h3><p>National expenditure · selected year</p></div><span class="tag">PIE CHART</span></div><div class="donut-wrap"><canvas id="ageChart"></canvas><div class="empty" id="ageEmpty">Loading data…</div></div></article>
+ </div>
+ <div class="section-heading table-title"><div><h2>Regional expenditure summary</h2><p>Compare expenditure across provinces and territories</p></div><span class="table-count" id="regionCount">— regions</span></div>
+ <article class="panel table-panel" id="regionsTable"><div class="table-scroll"><table><thead><tr><th>REGION</th><th>TYPE</th><th>TOTAL EXPENDITURE</th><th>AVERAGE PER CAPITA</th></tr></thead><tbody id="provinceTable"><tr><td colspan="4" class="loading">Loading regional data…</td></tr></tbody></table></div></article>
+ <footer>© 2026 HealthScope Analytics <span>Canadian Healthcare Expenditure Dataset · 1998–2022</span></footer>
+</section></main></div><div class="toast" id="toast"></div>
+<script src="{{ url_for('static', path='dashboard.js') }}"></script></body></html>
